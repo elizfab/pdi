@@ -33,6 +33,11 @@ html {
   --green: #43a047;
   --yellow: #ffca28;
 
+  /* Gradiente "lombada de caderno" do tab-bar (tabs, faixa e botões de scroll) */
+  --color-rose: var(--pink);
+  --color-rose-hover: color-mix(in srgb, var(--pink) 80%, black);
+  --color-amarelo: var(--yellow);
+
   /* Superfícies (modo claro) */
   --bg: var(--white);
   --bg-alt: #f6f7f9;
@@ -239,7 +244,6 @@ html {
   }
 
   /* ---------- TABS (seções 01–10) ---------- */
-  // ADICIONAR UM BACKGROUN
 
   .tab-bar-sticky {
     position: sticky;
@@ -293,7 +297,7 @@ html {
     font-size: 0.9rem;
     font-weight: 700;
     border-radius: 0.4rem;
-    border: 1px solid rgba(255, 182, 193, 0.25);
+    border: 1px solid color-mix(in srgb, var(--color-rose) 25%, transparent);
     background: none;
     color: var(--color-rose);
     transition:
@@ -315,7 +319,7 @@ html {
     font-size: 0.9rem;
     font-weight: 700;
     border-radius: 0.4rem 0.4rem 0 0;
-    border: 1px solid rgba(255, 182, 193, 0.25);
+    border: 1px solid color-mix(in srgb, var(--color-rose) 25%, transparent);
     background: linear-gradient(90deg, var(--color-rose), var(--color-amarelo), #a855f7);
     -webkit-background-clip: text;
     background-clip: text;
@@ -337,7 +341,7 @@ html {
   .tab-btn.is-active {
     color: var(--color-rose);
     border-color: var(--color-rose);
-    box-shadow: inset 0 5px 0 0 var(--color-rose);
+    box-shadow: inset 0 0.3125rem 0 0 var(--color-rose);
   }
   /* Tinte da aba ativa via ::before — background-clip: text recortaria
      qualquer background-color do proprio botao */
@@ -1412,7 +1416,7 @@ html {
   }
   .status-pill {
     display: inline-block;
-    padding: 3px 0.625rem;
+    padding: 0.1875rem 0.625rem;
     border-radius: 62.4375rem;
     font-size: 0.72rem;
     font-weight: 700;

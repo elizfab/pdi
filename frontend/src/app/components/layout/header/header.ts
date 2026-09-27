@@ -12,15 +12,13 @@ import { LucideMoon, LucidePrinter, LucideSun } from '@lucide/angular';
 export class Header {
   @Input() ano = new Date().getFullYear();
   @Input() iniciais = 'EF';
+  @Input() isDark = false;
 
   readonly homeHref = 'https://elizabetesousafabri.com.br/';
   @Output() toggleDark = new EventEmitter<void>();
   @Output() print = new EventEmitter<void>();
 
-  isDark = false;
-
   onToggleDark(): void {
-    this.isDark = !this.isDark;
     this.toggleDark.emit();
   }
 
