@@ -18,7 +18,7 @@
 | Categoria         | `Frontend`                                  |
 | Tipo              | `Pessoal`                                   |
 | Escopo            | `Frontend`                                  |
-| Domínio principal | `https://pdi.elizabetesousafabri.com.br`    |
+| Domínio principal | `https://pdi-elizabete.vercel.app`          |
 
 - **Descrição curta:** Aplicação web para apresentação pública do Plano de Desenvolvimento Individual, com identidade visual independente, navegação por abas e suporte a tema claro/escuro.
 - **Propósito / por quê foi criado:** Centralizar e comunicar de forma elegante a trajetória profissional, objetivos, metas, conquistas, plano de ação e estudos em uma página pública de fácil acesso.
@@ -180,16 +180,16 @@ pdi/
 
 ### Provedor / plataforma
 
-- **Frontend:** Hostinger (subdomínio `pdi.elizabetesousafabri.com.br`) / Vercel
+- **Frontend:** Hostinger (subdomínio `pdi-elizabete.vercel.app`) / Vercel
 - **Backend:** Não há backend.
 - **Banco:** Não há banco.
 
 ### Domínios e URLs
 
-| Ambiente | URL                                              |
-| -------- | ------------------------------------------------ |
-| Produção | `https://pdi.elizabetesousafabri.com.br`         |
-| Repo     | `https://github.com/elizabetefabri/pdi-frontend` |
+| Ambiente | URL                                |
+| -------- | ---------------------------------- |
+| Produção | `https://pdi-elizabete.vercel.app` |
+| Repo     | `https://github.com/elizfab/pdi`   |
 
 ### Credenciais de acesso (ambiente de teste/dev)
 
@@ -279,8 +279,8 @@ CHROME_PATH=/caminho/do/chrome npm run screenshots
     alt: 'Logo do PDI',
     fit: 'contain',
   },
-  repoUrl: 'https://github.com/elizabetefabri/pdi-frontend',
-  demoUrl: 'https://pdi.elizabetesousafabri.com.br',
+  repoUrl: 'https://github.com/elizfab/pdi',
+  demoUrl: 'https://pdi-elizabete.vercel.app',
   problem:
     'Dificuldade em comunicar de forma clara e visual a trajetória, objetivos, ' +
     'metas e conquistas profissionais em um só lugar.',
@@ -368,8 +368,8 @@ CHROME_PATH=/caminho/do/chrome npm run screenshots
 
 ### Projeto
 
-- Repo: `https://github.com/elizabetefabri/pdi-frontend`
-- Deploy: `https://pdi.elizabetesousafabri.com.br`
+- Repo: `https://github.com/elizfab/pdi`
+- Deploy: `https://pdi-elizabete.vercel.app`
 - README: `pdi/README.md` (em andamento)
 
 ### Documentação e caderno de estudos
