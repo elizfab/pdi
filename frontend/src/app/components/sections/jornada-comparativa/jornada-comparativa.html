@@ -1,0 +1,23 @@
+<section id="jornada" class="section section-alt" aria-labelledby="antesHojeTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">10 · Jornada</p>
+    <h2 id="antesHojeTitle">De onde eu vim → Onde estou</h2>
+
+    <div class="journey-map">
+      <div class="journey-step">
+        <span class="journey-label">Antes</span>
+        <p id="antesTexto">{{ data.antes }}</p>
+      </div>
+      <div class="journey-arrow" aria-hidden="true"><svg lucideArrowRight [size]="24"></svg></div>
+      <div class="journey-step">
+        <span class="journey-label">Hoje</span>
+        <p id="hojeTexto">{{ data.hoje }}</p>
+      </div>
+      <div class="journey-arrow" aria-hidden="true"><svg lucideArrowRight [size]="24"></svg></div>
+      <div class="journey-step journey-step-highlight">
+        <span class="journey-label">Próximo nível</span>
+        <p id="proximoNivelTexto">{{ data.proximoNivel }}</p>
+      </div>
+    </div>
+  </div>
+</section>

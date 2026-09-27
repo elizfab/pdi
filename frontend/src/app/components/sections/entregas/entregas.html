@@ -1,0 +1,35 @@
+<section id="entregas" class="section section-alt" aria-labelledby="entregasTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">04 · Impacto</p>
+    <h2 id="entregasTitle">Entregas de valor</h2>
+
+    <h3 class="subsection-title">Entregas de valor profissional</h3>
+    <div class="cards-grid" id="entregasProfissionaisGrid">
+      @for (e of profissionais; track $index) {
+        <article class="card">
+          <div class="card-top"><span class="badge badge-orange">Projeto</span><span class="card-date">{{ e.metricas }}</span></div>
+          <h3>{{ e.projeto }}</h3>
+          <p><strong>Problema:</strong> {{ e.problema }}</p>
+          <p><strong>Solução:</strong> {{ e.solucao }}</p>
+          <p><strong>Resultado:</strong> {{ e.resultado }}</p>
+          <p style="margin-bottom:0;"><strong>Impacto:</strong> {{ e.impacto }}</p>
+          <div class="card-footer">
+            @for (t of e.tecnologias; track $index) {
+              <span class="tag">{{ t }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+
+    <h3 class="subsection-title">Entregas de valor na vida</h3>
+    <div class="cards-grid cards-grid-4" id="entregasVidaGrid">
+      @for (e of vida; track $index) {
+        <article class="card">
+          <h3>{{ e.titulo }}</h3>
+          <p style="margin-bottom:0;">{{ e.descricao }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

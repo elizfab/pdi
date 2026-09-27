@@ -1,0 +1,33 @@
+<section id="links" class="section section-alt" aria-labelledby="linksTitle">
+  <div class="section-inner section-inner-center">
+    <p class="section-eyebrow">Conexão</p>
+    <h2 id="linksTitle">Conecte-se comigo</h2>
+
+    <div class="links-grid" id="linksGrid">
+      @for (i of items; track i.key) {
+        <a class="link-btn" [href]="data[i.key]" target="_blank" rel="noopener noreferrer">
+          <span class="link-icon" [style.background]="i.color">
+            @switch (i.icon) {
+              @case ('file') {
+                <svg lucideFileText [size]="20" aria-hidden="true"></svg>
+              }
+              @case ('linkedin') {
+                <img src="images/icons/linkedin.png" alt="" class="icon-img" />
+              }
+              @case ('github') {
+                <img src="images/icons/github.svg" alt="" class="icon-img" />
+              }
+              @case ('globe') {
+                <svg lucideGlobe [size]="20" aria-hidden="true"></svg>
+              }
+              @case ('mail') {
+                <svg lucideMail [size]="20" aria-hidden="true"></svg>
+              }
+            }
+          </span>
+          {{ i.label }}
+        </a>
+      }
+    </div>
+  </div>
+</section>

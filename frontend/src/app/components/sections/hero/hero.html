@@ -1,0 +1,41 @@
+<section id="inicio" class="hero" aria-labelledby="heroNome">
+  <div class="hero-inner">
+    <h1 id="heroNome" class="hero-title" data-anim="fade-up" data-delay="1">
+      {{ data.nome }}
+    </h1>
+
+    <p class="hero-subtitle" data-anim="fade-up" data-delay="3" id="heroFrase">
+      {{ data.descricaoCurta }}
+    </p>
+
+    <blockquote class="quote">
+      <span class="quoteMark">“</span>
+
+      <p data-anim="fade-up" data-delay="3" id="heroFrase">{{ data.fraseImpactoCurta }}</p>
+    </blockquote>
+
+    <!-- <div class="hero-meta" data-anim="fade-up" data-delay="4">
+      <div class="hero-avatar" id="heroAvatar">
+        <img
+          src="https://avatars.githubusercontent.com/u/67619417?v=4"
+          alt="Foto de perfil de {{ data.nome }}"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-meta-text">
+        <strong id="heroCargo">{{ data.cargoAtual }}</strong>
+        <span id="heroArea">{{ data.area }}</span>
+        <p id="heroDescricao">{{ data.descricaoCurta }}</p>
+      </div>
+    </div> -->
+
+    <!-- <div class="hero-cta" data-anim="fade-up" data-delay="5">
+      <a href="#trajetoria" class="btn btn-primary">Conheça minha trajetória</a>
+      <a href="#metas-profissionais" class="btn btn-outline">Ver minhas metas</a>
+      <a [routerLink]="['/']" class="btn btn-ghost">
+        <svg lucideArrowLeft [size]="16" aria-hidden="true"></svg>
+        Voltar ao portfólio
+      </a>
+    </div> -->
+  </div>
+</section>

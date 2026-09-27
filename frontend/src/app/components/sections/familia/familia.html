@@ -1,0 +1,27 @@
+<section id="familia" class="section" aria-labelledby="familiaTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">07 · O que me move</p>
+    <h2 id="familiaTitle">Minha família</h2>
+    <p class="section-note">Informações sensíveis não são expostas automaticamente — os campos abaixo são editáveis em <code>src/app/pdi-data.ts</code>.</p>
+
+    <div class="cards-grid cards-grid-3">
+      <article class="card">
+        <h3>Família</h3>
+        <p id="familiaTexto">{{ data.familia }}</p>
+      </article>
+      <article class="card">
+        <h3>Filhos</h3>
+        <p id="filhosTexto">{{ data.filhos }}</p>
+      </article>
+      <article class="card">
+        <h3>Experiências que quero viver</h3>
+        <p id="experienciasTexto">{{ data.experienciasQueQuero }}</p>
+      </article>
+    </div>
+
+    <div class="callout" id="familiaPergunta">
+      <span class="callout-icon" aria-hidden="true">💬</span>
+      <p>{{ data.perguntas[0] }}</p>
+    </div>
+  </div>
+</section>

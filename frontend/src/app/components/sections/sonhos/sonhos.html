@@ -1,0 +1,37 @@
+<section id="sonhos" class="section section-alt" aria-labelledby="sonhosTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">08 · Horizonte</p>
+    <h2 id="sonhosTitle">Meus sonhos</h2>
+
+    <pdi-filter-bar
+      [options]="filters"
+      [active]="filter"
+      (filterChange)="onFilterChange($event)"
+    ></pdi-filter-bar>
+
+    <div class="cards-grid cards-grid-3" id="sonhosGrid" aria-live="polite">
+      @for (s of filtered(); track $index) {
+        <article class="card dream-card">
+          <div class="card-top">
+            <span class="badge badge-orange">{{ s.categoria }}</span>
+            <span class="dream-status" [title]="statusMap[s.status].label">
+              @switch (s.status) {
+                @case ('iniciado') { <svg lucideSprout [size]="20" aria-hidden="true"></svg> }
+                @case ('construcao') { <svg lucideRocket [size]="20" aria-hidden="true"></svg> }
+                @case ('proximo') { <svg lucideTarget [size]="20" aria-hidden="true"></svg> }
+                @case ('realizado') { <svg lucideTrophy [size]="20" aria-hidden="true"></svg> }
+                @default { <svg lucideSparkles [size]="20" aria-hidden="true"></svg> }
+              }
+            </span>
+          </div>
+          <h3>{{ s.titulo }}</h3>
+          <p><strong>Por que é importante:</strong> {{ s.porque }}</p>
+          <p class="dream-first-step"><strong>Primeiro passo:</strong> {{ s.primeiroPasso }}</p>
+          <div class="card-footer">Prazo: {{ s.prazo }} · {{ statusMap[s.status].label }}</div>
+        </article>
+      } @empty {
+        <p>Nenhum sonho nesta categoria ainda.</p>
+      }
+    </div>
+  </div>
+</section>

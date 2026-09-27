@@ -1,0 +1,12 @@
+<div class="filter-bar" role="tablist">
+  @for (opt of options; track opt.value) {
+    <button
+      class="filter-chip"
+      [class.is-active]="opt.value === active"
+      [attr.aria-selected]="opt.value === active"
+      (click)="select(opt.value)"
+    >
+      {{ opt.label }}
+    </button>
+  }
+</div>

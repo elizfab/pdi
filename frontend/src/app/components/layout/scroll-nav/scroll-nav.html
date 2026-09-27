@@ -1,0 +1,14 @@
+<button
+  type="button"
+  class="scroll-nav"
+  (click)="goNext()"
+  [attr.aria-label]="
+    direction() === 'down' ? 'Ir para a próxima seção' : 'Voltar para a seção anterior'
+  "
+>
+  @if (direction() === 'down') {
+    <svg lucideChevronDown [size]="18" aria-hidden="true"></svg>
+  } @else {
+    <svg lucideChevronUp [size]="18" aria-hidden="true"></svg>
+  }
+</button>

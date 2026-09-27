@@ -1,0 +1,20 @@
+/* Reset e estilos base mínimos para o app PDI.
+   O design system completo vive em src/app/pdi.scss e é carregado sob demanda. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

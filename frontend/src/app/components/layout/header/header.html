@@ -1,0 +1,30 @@
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a [href]="homeHref" class="brand" aria-label="Voltar para a home do portfólio">
+      <span class="brand-mark" aria-hidden="true">{{ iniciais }}</span>
+      <!-- <span class="brand-text">PDI <em>Elizabete</em></span> -->
+    </a>
+
+    <p class="eyebrow header-eyebrow" data-anim="fade-up">
+      Plano de Desenvolvimento Individual · <span id="heroAno">{{ ano }}</span>
+    </p>
+
+    <div class="header-actions">
+      <button
+        type="button"
+        id="darkModeToggle"
+        class="icon-btn"
+        (click)="onToggleDark()"
+        [attr.aria-pressed]="isDark"
+        aria-label="Alternar modo escuro"
+      >
+        <svg lucideSun class="icon-sun" [size]="18" aria-hidden="true"></svg>
+        <svg lucideMoon class="icon-moon" [size]="18" aria-hidden="true"></svg>
+      </button>
+      <button type="button" id="printBtn" class="btn btn-ghost btn-sm" (click)="onPrint()">
+        <svg lucidePrinter [size]="15" aria-hidden="true"></svg>
+        <span>Imprimir / Exportar PDI</span>
+      </button>
+    </div>
+  </div>
+</header>

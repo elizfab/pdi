@@ -1,0 +1,61 @@
+<div class="pdi-app" [attr.data-theme]="isDark() ? 'dark' : null">
+  <!-- Fundo global fixo: grid + orbes do hero estendidos por toda a página (até Conexão) -->
+  <div class="app-bg" aria-hidden="true">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-orb hero-orb-4"></div>
+  </div>
+
+  <pdi-scroll-progress></pdi-scroll-progress>
+
+  <pdi-header
+    [ano]="data.hero.ano"
+    [iniciais]="data.hero.avatarIniciais"
+    (toggleDark)="toggleDarkMode()"
+    (print)="printPage()"
+  ></pdi-header>
+
+  <div id="mainContent">
+    <pdi-hero [data]="data.hero"></pdi-hero>
+
+    <pdi-tabs
+      [hero]="data.hero"
+      [perfil]="data.perfil"
+      [jornada]="data.jornada"
+      [indicadores]="data.indicadores"
+      [trajetoria]="data.trajetoria"
+      [conquistas]="data.conquistas"
+      [perguntaConquista]="data.perguntaConquista"
+      [entregasProfissionais]="data.entregasProfissionais"
+      [entregasVida]="data.entregasVida"
+      [metasProfissionais]="data.metasProfissionais"
+      [metasPessoais]="data.metasPessoais"
+      [perguntaMeta]="data.perguntasMetas[0]"
+      [familia]="data.familia"
+      [sonhos]="data.sonhos"
+      [statusSonho]="data.statusSonho"
+      [planoAcao]="data.planoAcao"
+      [jornadaComparativa]="data.jornadaComparativa"
+      [dashboard]="data.dashboard"
+      [matriz]="data.matrizCompetencias"
+      [estudos]="data.estudos"
+      [visao]="data.visaoFuturo"
+      (openModal)="onOpenModal($event)"
+    ></pdi-tabs>
+
+    <pdi-links [data]="data.links"></pdi-links>
+  </div>
+
+  <pdi-footer [ano]="data.hero.ano" [links]="data.links"></pdi-footer>
+
+  <pdi-back-to-top></pdi-back-to-top>
+
+  <pdi-modal
+    [open]="modalOpen"
+    [title]="modalTitle"
+    [fields]="modalFields"
+    (close)="onCloseModal()"
+  ></pdi-modal>
+</div>

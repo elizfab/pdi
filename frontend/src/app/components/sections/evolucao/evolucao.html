@@ -1,0 +1,103 @@
+<section
+  [attr.id]="variant === 'evolucao' ? 'evolucao' : 'painel'"
+  class="section"
+  [attr.aria-labelledby]="variant === 'evolucao' ? 'evolucaoTitle' : 'painelTitle'"
+>
+  <div class="section-inner">
+    <p class="section-eyebrow">
+      {{ variant === 'evolucao' ? '12 · Evolução' : '11 · Painel executivo' }}
+    </p>
+    <h2 [attr.id]="variant === 'evolucao' ? 'evolucaoTitle' : 'painelTitle'">
+      {{ variant === 'evolucao' ? 'Evolução técnica' : 'Dashboard de evolução' }}
+    </h2>
+
+    @if (variant !== 'evolucao') {
+      <div class="dashboard-grid" id="dashboardGrid">
+        @for (d of dashValues; track $index) {
+          <div class="dash-card">
+            <div class="dash-value">{{ d.value }}</div>
+            <div class="dash-label">{{ d.label }}</div>
+          </div>
+        }
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Metas por categoria</h3>
+          <pdi-chart-bars [data]="dashboard.metasPorCategoria"></pdi-chart-bars>
+        </div>
+        <div class="chart-card">
+          <h3>Curto x médio x longo prazo</h3>
+          <pdi-chart-bars [data]="dashboard.prazos"></pdi-chart-bars>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Plano de desenvolvimento — matriz de competências</h3>
+      <div class="table-wrap">
+        <table class="data-table" id="matrizTable">
+          <thead>
+            <tr>
+              <th scope="col">Competência</th>
+              <th scope="col">Situação atual</th>
+              <th scope="col">Objetivo</th>
+              <th scope="col">Ação</th>
+              <th scope="col">Prazo</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="matrizBody">
+            @for (m of matriz; track $index) {
+              <tr>
+                <td>
+                  <strong>{{ m.competencia }}</strong>
+                </td>
+                <td>{{ m.situacaoAtual }}</td>
+                <td>{{ m.objetivo }}</td>
+                <td>{{ m.acao }}</td>
+                <td>{{ m.prazo }}</td>
+                <td>
+                  <span class="status-pill" [style]="statusPillStyle(m.status)">{{
+                    m.status
+                  }}</span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+
+    @if (variant !== 'painel') {
+      <h3 class="subsection-title">Minha evolução técnica</h3>
+      <div class="cards-grid" id="estudosGrid">
+        @for (e of estudos; track $index) {
+          <article class="card">
+            <div class="card-top">
+              <span class="badge badge-blue">{{ e.categoria }}</span
+              ><span class="card-date">{{ e.data }}</span>
+            </div>
+            <h3>{{ e.nome }}</h3>
+            <div class="goal-progress-track">
+              <div
+                class="goal-progress-fill"
+                style="width: 0%"
+                [attr.data-target]="e.progresso"
+              ></div>
+            </div>
+            <div class="goal-progress-label">{{ e.status }} — {{ e.progresso }}%</div>
+          </article>
+        }
+      </div>
+
+      <h3 class="subsection-title">Onde quero estar?</h3>
+      <div class="roadmap" id="roadmapGrid">
+        @for (item of roadmap; track $index) {
+          <div class="roadmap-item">
+            <h4>{{ item.label }}</h4>
+            <p>{{ item.text }}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

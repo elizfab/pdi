@@ -1,0 +1,215 @@
+<section id="secoes" class="section" aria-labelledby="secoesTitle">
+  <div class="tab-bar-sticky">
+    <div class="tab-bar-wrap">
+      <button
+        type="button"
+        class="tab-scroll-btn tab-scroll-prev"
+        [hidden]="!canScrollLeft()"
+        (click)="scrollTabs(-1)"
+        aria-label="Rolar abas para a esquerda"
+        tabindex="-1"
+      >
+        <svg lucideChevronLeft [size]="16" aria-hidden="true"></svg>
+      </button>
+
+      <div
+        class="tab-bar"
+        #tabBar
+        role="tablist"
+        aria-label="Seções do PDI"
+        (keydown)="onTabKeydown($event)"
+        (scroll)="updateScroll()"
+      >
+        @for (t of tabs; track t.id) {
+          <button
+            type="button"
+            role="tab"
+            class="tab-btn"
+            [class.is-active]="isActive(t.id)"
+            [attr.aria-selected]="isActive(t.id)"
+            [attr.aria-controls]="'panel-' + t.id"
+            [id]="'tab-' + t.id"
+            [attr.tabindex]="isActive(t.id) ? 0 : -1"
+            (click)="select(t.id)"
+          >
+            <span class="tab-label">{{ t.label }}</span>
+          </button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="tab-scroll-btn tab-scroll-next"
+        [hidden]="!canScrollRight()"
+        (click)="scrollTabs(1)"
+        aria-label="Rolar abas para a direita"
+        tabindex="-1"
+      >
+        <svg lucideChevronRight [size]="16" aria-hidden="true"></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="tab-panels">
+    <div
+      class="tab-panel"
+      id="panel-inicio"
+      role="tabpanel"
+      aria-labelledby="tab-inicio"
+      [hidden]="!isActive('inicio')"
+    >
+      <pdi-inicio></pdi-inicio>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-sobre"
+      role="tabpanel"
+      aria-labelledby="tab-sobre"
+      [hidden]="!isActive('sobre')"
+    >
+      <pdi-sobre
+        [hero]="hero"
+        [perfil]="perfil"
+        [jornada]="jornada"
+        [indicadores]="indicadores"
+      ></pdi-sobre>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-trajetoria"
+      role="tabpanel"
+      aria-labelledby="tab-trajetoria"
+      [hidden]="!isActive('trajetoria')"
+    >
+      <pdi-trajetoria [items]="trajetoria"></pdi-trajetoria>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-conquistas"
+      role="tabpanel"
+      aria-labelledby="tab-conquistas"
+      [hidden]="!isActive('conquistas')"
+    >
+      <pdi-conquistas
+        [conquistas]="conquistas"
+        [pergunta]="perguntaConquista"
+        (openModal)="openModal.emit($event)"
+      ></pdi-conquistas>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-entregas"
+      role="tabpanel"
+      aria-labelledby="tab-entregas"
+      [hidden]="!isActive('entregas')"
+    >
+      <pdi-entregas [profissionais]="entregasProfissionais" [vida]="entregasVida"></pdi-entregas>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-metas-profissionais"
+      role="tabpanel"
+      aria-labelledby="tab-metas-profissionais"
+      [hidden]="!isActive('metas-profissionais')"
+    >
+      <pdi-metas
+        variant="prof"
+        [profissionais]="metasProfissionais"
+        [pessoais]="metasPessoais"
+        [pergunta]="perguntaMeta"
+      ></pdi-metas>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-metas-pessoais"
+      role="tabpanel"
+      aria-labelledby="tab-metas-pessoais"
+      [hidden]="!isActive('metas-pessoais')"
+    >
+      <pdi-metas
+        variant="pessoal"
+        [profissionais]="metasProfissionais"
+        [pessoais]="metasPessoais"
+        [pergunta]="perguntaMeta"
+      ></pdi-metas>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-familia"
+      role="tabpanel"
+      aria-labelledby="tab-familia"
+      [hidden]="!isActive('familia')"
+    >
+      <pdi-familia [data]="familia"></pdi-familia>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-sonhos"
+      role="tabpanel"
+      aria-labelledby="tab-sonhos"
+      [hidden]="!isActive('sonhos')"
+    >
+      <pdi-sonhos [sonhos]="sonhos" [statusMap]="statusSonho"></pdi-sonhos>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-plano-acao"
+      role="tabpanel"
+      aria-labelledby="tab-plano-acao"
+      [hidden]="!isActive('plano-acao')"
+    >
+      <pdi-plano-acao [items]="planoAcao"></pdi-plano-acao>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-jornada"
+      role="tabpanel"
+      aria-labelledby="tab-jornada"
+      [hidden]="!isActive('jornada')"
+    >
+      <pdi-jornada-comparativa [data]="jornadaComparativa"></pdi-jornada-comparativa>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-painel"
+      role="tabpanel"
+      aria-labelledby="tab-painel"
+      [hidden]="!isActive('painel')"
+    >
+      <pdi-evolucao
+        variant="painel"
+        [dashboard]="dashboard"
+        [matriz]="matriz"
+        [estudos]="estudos"
+        [visao]="visao"
+      ></pdi-evolucao>
+    </div>
+
+    <div
+      class="tab-panel"
+      id="panel-evolucao"
+      role="tabpanel"
+      aria-labelledby="tab-evolucao"
+      [hidden]="!isActive('evolucao')"
+    >
+      <pdi-evolucao
+        variant="evolucao"
+        [dashboard]="dashboard"
+        [matriz]="matriz"
+        [estudos]="estudos"
+        [visao]="visao"
+      ></pdi-evolucao>
+    </div>
+  </div>
+</section>

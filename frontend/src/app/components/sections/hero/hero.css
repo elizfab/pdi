@@ -1,0 +1,5 @@
+.hero {
+  background:
+    linear-gradient(90deg, var(--bg) 0%, var(--bg) 100%),
+    linear-gradient(360deg, var(--bg) 0%, var(--bg) 100%);
+}

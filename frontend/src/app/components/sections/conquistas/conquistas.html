@@ -1,0 +1,40 @@
+<section id="conquistas" class="section" aria-labelledby="conquistasTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">03 · Resultados</p>
+    <h2 id="conquistasTitle">O que já conquistei</h2>
+
+    <div class="callout">
+      <span class="callout-icon" aria-hidden="true">✨</span>
+      <p id="perguntaConquista">{{ pergunta }}</p>
+    </div>
+
+    <pdi-filter-bar
+      [options]="filters"
+      [active]="filter"
+      (filterChange)="onFilterChange($event)"
+    ></pdi-filter-bar>
+
+    <div class="cards-grid" id="conquistasGrid" aria-live="polite">
+      @for (c of filteredItems(); track $index) {
+        <article
+          class="card card-clickable"
+          tabindex="0"
+          role="button"
+          [attr.aria-label]="'Ver detalhes: ' + c.titulo"
+          (click)="open(c)"
+          (keydown.enter)="open(c)"
+        >
+          <div class="card-top">
+            <span class="badge" [class]="statusBadgeClass(c.status)">{{ c.status }}</span>
+            <span class="card-date">{{ c.data }}</span>
+          </div>
+          <h3>{{ c.titulo }}</h3>
+          <p>{{ c.descricao }}</p>
+          <div class="card-footer">{{ c.categoria }}</div>
+        </article>
+      } @empty {
+        <p>Nenhuma conquista nesta categoria ainda.</p>
+      }
+    </div>
+  </div>
+</section>

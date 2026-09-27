@@ -1,0 +1,7 @@
+/* Estilos base do header/nav estão em pdi.scss (escopo .pdi-app).
+   Aqui ficam apenas as regras que dependem do estado do componente. */
+
+.icon-sun, .icon-moon { position: absolute; transition: transform var(--t-med) var(--ease), opacity var(--t-med) var(--ease); }
+.icon-moon { opacity: 0; transform: translateY(0.75rem) rotate(-30deg); }
+:host-context(.pdi-app[data-theme="dark"]) .icon-sun { opacity: 0; transform: translateY(-0.75rem) rotate(30deg); }
+:host-context(.pdi-app[data-theme="dark"]) .icon-moon { opacity: 1; transform: translateY(0) rotate(0); }

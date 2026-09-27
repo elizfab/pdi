@@ -1,0 +1,99 @@
+<section id="sobre" class="section" aria-labelledby="sobreTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">01 · Apresentação</p>
+    <h2 id="sobreTitle">Quem é Elizabete?</h2>
+
+    <div class="about-grid">
+      <div class="about-photo" data-anim="fade-right">
+        <div class="photo-frame" id="perfilAvatar">
+          <img
+            src="https://avatars.githubusercontent.com/u/67619417?v=4"
+            alt="Foto de perfil de Elizabete"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="about-text" data-anim="fade-left">
+        <p id="perfilTexto">{{ perfil.textoApresentacao }}</p>
+        <dl class="about-facts" id="perfilFatos">
+          <div>
+            <dt>Cargo</dt>
+            <dd>{{ perfil.cargo }}</dd>
+          </div>
+          <div>
+            <dt>Área</dt>
+            <dd>{{ perfil.areaAtuacao }}</dd>
+          </div>
+          <div>
+            <dt>Experiência</dt>
+            <dd>{{ perfil.experiencia }}</dd>
+          </div>
+          <div>
+            <dt>Tecnologias principais</dt>
+            <dd>{{ perfil.tecnologiasPrincipais.join(', ') }}</dd>
+          </div>
+          <div>
+            <dt>Características</dt>
+            <dd>{{ perfil.caracteristicas.join(', ') }}</dd>
+          </div>
+          <div>
+            <dt>Valores</dt>
+            <dd>{{ perfil.valores.join(', ') }}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="callout callout-accordion" id="perfilPergunta" [class.open]="jornadaOpen()">
+      <button
+        type="button"
+        class="callout-trigger"
+        id="perfilPerguntaBtn"
+        (click)="toggleJornada()"
+        [attr.aria-expanded]="jornadaOpen()"
+        aria-controls="perfilJornada"
+      >
+        <span class="callout-icon" aria-hidden="true">✨</span>
+        <p>{{ perfil.perguntasPreenchimento[0] }}</p>
+        <svg lucideChevronDown [size]="18" class="callout-chevron" aria-hidden="true"></svg>
+      </button>
+
+      <div
+        class="callout-content"
+        id="perfilJornada"
+        role="region"
+        aria-labelledby="perfilPerguntaBtn"
+      >
+        <div class="callout-body">
+          <div class="journey-block">
+            <h3>Minha jornada até aqui</h3>
+            <div class="journey-grid">
+              <div class="journey-text">
+                <p>
+                  <strong>Onde comecei —</strong>
+                  <span id="jornadaComecei">{{ jornada.ondeComecei }}</span>
+                </p>
+                <p>
+                  <strong>Onde estou —</strong>
+                  <span id="jornadaEstou">{{ jornada.ondeEstou }}</span>
+                </p>
+                <p>
+                  <strong>Principais aprendizados —</strong>
+                  <span id="jornadaAprendizados">{{ jornada.principaisAprendizados }}</span>
+                </p>
+              </div>
+              <div class="indicators-grid" id="indicadoresGrid" aria-label="Indicadores gerais">
+                @for (ind of indicadores; track $index) {
+                  <div class="indicator-card">
+                    <div class="indicator-value">{{ ind.valor }}{{ ind.sufixo }}</div>
+                    <div class="indicator-label">{{ ind.label }}</div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

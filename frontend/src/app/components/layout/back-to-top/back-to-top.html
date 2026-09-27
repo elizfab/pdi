@@ -1,0 +1,10 @@
+<button
+  type="button"
+  id="backToTop"
+  class="back-to-top"
+  [class.is-visible]="visible"
+  (click)="goToTop()"
+  aria-label="Voltar ao topo"
+>
+  <svg lucideArrowUp [size]="20" aria-hidden="true"></svg>
+</button>

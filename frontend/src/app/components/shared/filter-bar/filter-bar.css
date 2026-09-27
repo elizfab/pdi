@@ -1,0 +1,13 @@
+.filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.75rem 0 0.25rem; }
+.filter-chip {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 62.4375rem;
+  transition: all var(--t-fast) var(--ease);
+}
+.filter-chip:hover { border-color: var(--orange); color: var(--orange); }
+.filter-chip.is-active { background: var(--orange); border-color: var(--orange); color: #fff; }

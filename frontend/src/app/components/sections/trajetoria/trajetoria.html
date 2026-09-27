@@ -1,0 +1,27 @@
+<section id="trajetoria" class="section section-alt" aria-labelledby="trajetoriaTitle">
+  <div class="section-inner">
+    <p class="section-eyebrow">02 · Linha do tempo</p>
+    <h2 id="trajetoriaTitle">Minha trajetória</h2>
+    <p class="section-lead">Um panorama ano a ano de empresas, cargos, aprendizados e conquistas.</p>
+
+    <ol class="timeline" id="timelineList" aria-label="Linha do tempo profissional">
+      @for (t of items; track $index) {
+        <li class="timeline-item">
+          <span class="timeline-year">{{ t.ano }}</span>
+          <div class="timeline-card">
+            <h3>{{ t.cargo }}</h3>
+            <span class="role">{{ t.empresa }}</span>
+            <p>{{ t.descricao }}</p>
+            <p><strong>Aprendizados:</strong> {{ t.aprendizados }}</p>
+            <p style="margin-bottom:0;"><strong>Conquistas:</strong> {{ t.conquistas }}</p>
+            <div class="meta-row">
+              @for (tag of t.tecnologias; track $index) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

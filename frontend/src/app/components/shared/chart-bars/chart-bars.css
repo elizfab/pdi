@@ -1,0 +1,6 @@
+.chart-bars { display: flex; flex-direction: column; gap: 0.875rem; }
+.chart-bar-row { display: grid; grid-template-columns: 6.875rem 1fr 2.125rem; align-items: center; gap: 0.625rem; }
+.chart-bar-label { font-size: .78rem; color: var(--text-muted); }
+.chart-bar-track { height: 0.625rem; background: var(--bg-alt); border-radius: 62.4375rem; overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 62.4375rem; transition: width 1s var(--ease); }
+.chart-bar-value { font-size: .74rem; font-family: var(--f-mono); color: var(--text-soft); text-align: right; }

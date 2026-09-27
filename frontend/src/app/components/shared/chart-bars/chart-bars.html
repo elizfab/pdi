@@ -1,0 +1,9 @@
+@for (bar of bars; track $index) {
+  <div class="chart-bar-row">
+    <span class="chart-bar-label">{{ bar.label }}</span>
+    <span class="chart-bar-track">
+      <span class="chart-bar-fill" [style.width.%]="bar.pct" [style.background-color]="bar.color"></span>
+    </span>
+    <span class="chart-bar-value">{{ bar.value }}</span>
+  </div>
+}

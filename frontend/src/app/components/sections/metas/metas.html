@@ -1,0 +1,99 @@
+@if (variant !== 'pessoal') {
+  <section id="metas-profissionais" class="section" aria-labelledby="metasProfTitle">
+    <div class="section-inner">
+      <p class="section-eyebrow">05 · Carreira</p>
+      <h2 id="metasProfTitle">Metas profissionais</h2>
+
+      <div class="callout">
+        <span class="callout-icon" aria-hidden="true">✨</span>
+        <p id="perguntaMetaProfissional">{{ pergunta }}</p>
+      </div>
+
+      <div class="horizon-columns">
+        <div class="horizon-col">
+          <h3><span class="dot dot-green"></span> Curto prazo <small>0–12 meses</small></h3>
+          <div id="metasProfCurto" class="goal-list">
+            @for (g of profissionais.curto; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+        <div class="horizon-col">
+          <h3><span class="dot dot-blue"></span> Médio prazo <small>1–3 anos</small></h3>
+          <div id="metasProfMedio" class="goal-list">
+            @for (g of profissionais.medio; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+        <div class="horizon-col">
+          <h3><span class="dot dot-purple"></span> Longo prazo <small>3–5+ anos</small></h3>
+          <div id="metasProfLongo" class="goal-list">
+            @for (g of profissionais.longo; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+@if (variant !== 'prof') {
+  <section id="metas-pessoais" class="section section-alt" aria-labelledby="metasPessTitle">
+    <div class="section-inner">
+      <p class="section-eyebrow">06 · Vida pessoal</p>
+      <h2 id="metasPessTitle">Metas pessoais</h2>
+      <p class="section-lead">
+        Desenvolvimento pessoal, saúde, estudos, finanças, viagens, casa, hobbies e qualidade de
+        vida.
+      </p>
+
+      <div class="horizon-columns">
+        <div class="horizon-col">
+          <h3><span class="dot dot-green"></span> Curto prazo <small>0–12 meses</small></h3>
+          <div id="metasPessCurto" class="goal-list">
+            @for (g of pessoais.curto; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+        <div class="horizon-col">
+          <h3><span class="dot dot-blue"></span> Médio prazo <small>1–3 anos</small></h3>
+          <div id="metasPessMedio" class="goal-list">
+            @for (g of pessoais.medio; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+        <div class="horizon-col">
+          <h3><span class="dot dot-purple"></span> Longo prazo <small>3–5+ anos</small></h3>
+          <div id="metasPessLongo" class="goal-list">
+            @for (g of pessoais.longo; track $index) {
+              <ng-container *ngTemplateOutlet="goalTpl; context: { $implicit: g }"></ng-container>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<ng-template #goalTpl let-g>
+  <div class="goal-card">
+    <div class="goal-title">{{ g.meta }}</div>
+    <div class="goal-meta">
+      <span class="badge" [class]="priorityClass(g.prioridade)">{{ g.prioridade }}</span>
+      <span class="badge" [class]="statusClass(g.status)">{{ g.status }}</span>
+      <span class="tag">Prazo: {{ g.prazo }}</span>
+      @if (g.categoria) {
+        <span class="tag">{{ g.categoria }}</span>
+      }
+    </div>
+    <div class="goal-progress-track">
+      <div class="goal-progress-fill" style="width: 0%" [attr.data-target]="g.progresso"></div>
+    </div>
+    <div class="goal-progress-label">{{ g.progresso }}% concluído</div>
+    <p class="goal-next"><strong>Próxima ação:</strong> {{ g.proximaAcao }}</p>
+  </div>
+</ng-template>
